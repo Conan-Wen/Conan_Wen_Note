@@ -88,10 +88,10 @@ Created by Brendan Eich in1995.
 
 ### 1.6 The Constitutions of JS
 
-![TheConstitutionsOfJS](C:\Users\none\Desktop\JavaScriptNote\img\TheConstitutionsOfJS.png)
+![TheConstitutionsOfJS](\img\TheConstitutionsOfJS.png)
 
 - ECMAScript: JS basics, JS syntax
-  - ![ECMAScript](C:\Users\none\Desktop\JavaScriptNote\img\ECMAScript.png)
+  - ![ECMAScript](\img\ECMAScript.png)
 - DOM, BOM: JS API
   - DOM (Document Object Model). Control elements (size, position, color) on the webpage.
   - BOM (Browser Object Model). For example, pop-up box, page skip.
@@ -131,7 +131,7 @@ Created by Brendan Eich in1995.
 
 #### JS input/output
 
-![inputoutput](C:\Users\none\Desktop\JavaScriptNote\img\inputoutput.png)
+![inputoutput](\img\inputoutput.png)
 
 ```javascript
 prompt('Tell me your age: ');
@@ -237,7 +237,7 @@ var name = "Conan",
 
 ## 4. Variable Naming Convention
 
-![NamingConvention](C:\Users\none\Desktop\JavaScriptNote\img\NamingConvention.png)
+![NamingConvention](\img\NamingConvention.png)
 
 * Try not use 'name' to name a variable. Because the 'name' often has meaning or value in Browser.
 
@@ -261,7 +261,7 @@ var x = "10" //x became str now
 
 - **Simple data types** (Number, String, Boolean, Undefined, Null)
 
-  - ![SimpleData Types](C:\Users\none\Desktop\JavaScriptNote\img\SimpleData Types.png)
+  - ![SimpleData Types](\img\SimpleData Types.png)
 
   - Number:
 
@@ -307,7 +307,7 @@ var x = "10" //x became str now
 
     - escape character
 
-      - ![EscapeCharacter](C:\Users\none\Desktop\JavaScriptNote\img\EscapeCharacter.png)
+      - ![EscapeCharacter](\img\EscapeCharacter.png)
 
     - .length
 
@@ -406,7 +406,7 @@ var x = "10" //x became str now
 
   - Convert into String
 
-    - ![TransformToString](C:\Users\none\Desktop\JavaScriptNote\img\TransformToString.png)
+    - ![TransformToString](\img\TransformToString.png)
 
     - ```javascript
       //convert number into string by .toString()
@@ -425,7 +425,7 @@ var x = "10" //x became str now
 
   - Convert into Number
 
-    - ![ConvertIntoNumber](C:\Users\none\Desktop\JavaScriptNote\img\ConvertIntoNumber.png)
+    - ![ConvertIntoNumber](\img\ConvertIntoNumber.png)
 
       - ```javascript
         //parseInt(String)
@@ -474,8 +474,243 @@ var x = "10" //x became str now
         
         var num1 = prompt('tell me the first number: ');
         var num1 = prompt('tell me the second number: ');
-        alert("the first number add the second number is " + (num1 + num2));
+        var result = parseFLoat(num1) + parseFLoat(num2);
+        alert("the first number add the second number is " + result);
+        ```
+    
+  - Convert to Booelan
+  
+    - Boolean()
+      - ![ConvertToBoolean](\img\ConvertToBoolean.png)
+### 1.3 Column
+
+  Computer can't undestand other languages except machine language. So we need to translate other languages to machine languages. Conpiler is used to do this.
+
+- Interpreted Languages and Compiled Languages
+  - ![InterpretedLanguagesAndCompiledLanguages](\img\InterpretedLanguagesAndCompiledLanguages.png)
+  - Interpreted Languages
+    - the program is interpreted line by line when it is running. e.g. JavaScript
+  - Compiled Languages
+    - Compiled before run. generate intermediate code. e.g. Java and its intermediate code .class
+- Identifier, Keyword, Reserved word
+  - Identifier
+    - The name that programmer gave variable, or filed, or function, or parameter.
+  - Keyword
+    - The words have been used by JS. We can't use it as the name of variable or something else.
+    - e.g.: break, case, cath, continue, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, try, typeof, var, void, while, with and etc....
+  - Reserved word
+    - Also called keyword, means reserved keyword. It may be not a keyword now, but probably used later.
+    - e.g.: boolean, bytr, char, class, const, debugger, double, enum, export, extends, fimal, float, goto, implements, import, int, interface, long, mative, package, private, protected, public, short, static, super, synchronized, throws, transient, volatile and etc...
+
+  # JavaScript Operator
+
+Operator is called 运算符 or 操作符. It is used to implement assigning, comparing, arithmetical operation.
+
+## 1 Common Operator
+
+- **arithmetical operation**
+
+  - ![ArithmeticalOperation](\img\ArithmeticalOperation.png)
+
+  - ```javascript
+    // + add
+    console.log(1 + 1); //-->2
+    
+    // - subtract
+    console.log(1 - 1); //-->0
+    
+    // * multiply
+    console.log(1 * 1); //-->1
+    
+    // / divide
+    console.log(1 / 1); //-->1
+    
+    // % remainder
+    console.lo g(5 % 3); //-->2
+    ```
+
+  - 不确定尾数 (Uncertain Mantissa ?)
+
+    - Don't compare two float numbers direcrtly
+
+    - ```javascript
+      //for example
+      console.log(0.1 + 0.2); //-->3.000000000000000004
+      console.log(0.07 * 100); //-->7.000000000000001
+      ```
+
+- **Expression and Return Value**
+
+  - Expression
+    - Consist of number, operato, variable...
+    - All expression will return value. e.g. 1 +1 return 2.
+
+- **Increment Operator and Decrement Operator**
+
+  - pre-increment / pre-decrement.
+
+    - ++variable --variable
+
+    - do add/substract operation before returned value
+
+    - ```javascript
+      var a = 10;
+      console.log(++a + 10); //-->21
+      console.log(a); //-->11
+      ```
+
+  - post-increment / post-decrement
+
+    - variable++ variable--
+
+    - do add/substract operation after returned value
+
+    - ```javascript
+      var a = 10;
+      console.log(a++ + 10); //-->20
+      console.log(a); //-->11
+      ```
+
+- **Comparison Operator**
+
+  - ![ComparisonOperator](\img\ComparisonOperator.png)
+
+  - Special Case
+
+    - ```javascript
+      // == could convert data type
+      console.log(18 == "18"); //-->true
+      
+      // === and !== require two value are equal noy only in value but also in data type.
+      console.log(18 === "18"); //-->false
+      ```
+
+- **Logical Operator**
+
+  - ![LogicalOperator](\img\LogicalOperator.png)
+
+  - and &&
+
+    - return true only as both expression return true.
+
+  - or ||
+
+    - return ture if one of sides return ture or both true.
+
+  - not !
+
+    - return true when expression is false. and return false when expression true.
+
+  - Short-circuit evaluation
+
+    - >**Short-circuit evaluation**, **minimal evaluation**, or **McCarthy evaluation** (after [John McCarthy](https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist))) is the semantics of some [Boolean operators](https://en.wikipedia.org/wiki/Logical_connective) in some [programming languages](https://en.wikipedia.org/wiki/Programming_language) in which the second argument is executed or evaluated only if the first argument does not suffice to determine the value of the expression: when the first argument of the `AND` function evaluates to `false`, the overall value must be `false`; and when the first argument of the `OR` function evaluates to `true`, the overall value must be `true`.
+      >
+      >----'Short-circuit evaluation' Wikipedia (access 2021/05/02)
+
+    - In &&
+
+      - expression1 && expression2
+
+      - if the first expression (expression1) is true, it will return the value of the second expression (expression2).
+
+      - if the first expression (expression1) is false, it will return the value of the first expression (expression1).
+
+      - ```javascript
+        //example
+        console.log(123 && 456); //-->456
+        console.log(0 && 456); //-->0
+        console.log(0 && (1+2) && (456*123)); //-->0
         ```
 
-      - 
+    - In ||
+
+      - expression1 && expression2
+
+      - if the first expression (expression1) is true, it will return the value of the first expression (expression1).
+
+      - if the first expression (expression1) is false, it will return the value of the second expression (expression2).
+
+      - ```javascript
+        //exmaple
+        console.log(123 || 456); //-->123
+        console.log(123 || 456 || (456+123)); //-->123
+        console.log(0 || 456 || (456+123)); //-->456
+        ```
+
+    - Special case
+
+      - ```javascript
+        //In this case, num++ will not be executed
+        var num = 0;
+        console.log(123 || num++); //-->123
+        console.log(num); //-->0
+        ```
+
+  - Assigning Operator
+
+    - ![AssigningOperator](\img\AssigningOperator.png)
+
+    - ```javascript
+      // =
+      var num = 10;
+      console.log(num); //-->10
+      
+      // +=, -=, *=, /=, %=
+      var num = 10;
+      num += 2;
+      console.log(num); //-->12
+      ```
+
+## 2 Operator Precedence
+
+![OperatorPrecedence](\img\OperatorPrecedence.png)
+
+- Practice
+
+  - ```javascript
+    console.log(4 >= 6 || 'human' == 'avatar' && !(12 * 2 == 144) && true ); //-->ture
+    
+    var num = 10;
+    console.log( 5 == num/2 && (2 + 2 * num).toString() === '22'); //-->true
+    ```
+
+# JavaScript Control Flow
+
+Control our code run as a kind of order. There are three structures in control flow. Sequential Structure, Branch Structure, Loop structure.
+
+![ControlFlow](\img\ControlFlow.png)
+
+## 1 Sequential Structure
+
+The code in Sequential Structure will be executed one by one by sequential order.
+
+![SequentialStructure](\img\SequentialStructure.png)
+
+## 2 Branch Structure
+
+The order of code executed depends on different condition. Different routes will get different return.
+
+![BranchStructure](\img\BranchStructure.png)
+
+### 2.1 if statement
+
+- The code will be executed while the condition is true.
+
+  - ```javascript
+    if (condition) {
+        //code
+    }
+    ```
+
+- The code1 will be executed while the condition is true. And the code2 will be executed while the condition is false.
+
+  - ```javascript
+    if (condition) {
+        //code1
+    }else {
+        //code2
+    }
+    ```
+
+  - 
 
