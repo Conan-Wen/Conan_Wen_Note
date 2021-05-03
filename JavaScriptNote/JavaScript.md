@@ -674,7 +674,7 @@ Operator is called 运算符 or 操作符. It is used to implement assigning, co
     console.log( 5 == num/2 && (2 + 2 * num).toString() === '22'); //-->true
     ```
 
-# JavaScript Control Flow
+# Control Flow
 
 Control our code run as a kind of order. There are three structures in control flow. Sequential Structure, Branch Structure, Loop structure.
 
@@ -694,7 +694,9 @@ The order of code executed depends on different condition. Different routes will
 
 ### 2.1 if statement
 
-- The code will be executed while the condition is true.
+- if statement
+
+  - The code will be executed while the condition is true.
 
   - ```javascript
     if (condition) {
@@ -702,8 +704,10 @@ The order of code executed depends on different condition. Different routes will
     }
     ```
 
-- The code1 will be executed while the condition is true. And the code2 will be executed while the condition is false.
+- if else statement
 
+  - The code1 will be executed while the condition is true. And the code2 will be executed while the condition is false.
+  
   - ```javascript
     if (condition) {
         //code1
@@ -711,6 +715,350 @@ The order of code executed depends on different condition. Different routes will
         //code2
     }
     ```
+  
+- Multi-branch statement
 
-  - 
+  - if, else if, else. the code will be executed if the condition before it is true
+
+  - ```javascript
+    if (condition1) {
+        //code1
+    }else if (condition2) {
+        //code2
+    } else if (condition3) {
+        //code3
+    } else {
+        //code4
+    }
+    
+    //if one of the condition is checked and it's true. The rest of the condition will not be ckecked.
+    //only one section will be executed
+    ```
+
+  - example
+
+    - **!!!!!!!!!!!!!!!! It is similar with app.use() in Node.js.** In Express, app.use() will catch the request, and won't pass it without next().
+
+    - ```javascript
+      var score = prompt('your socre: ');
+      if (score >= 90) {
+          alert('A');
+      } else if (score >= 80) {
+          alert('B');
+          //if this was executed, that mens score must be less than 90.
+      } else {
+          alert('C');
+      }
+      ```
+
+### 2.2 switch statement
+
+- A kind of Multi-branch statement
+
+  - if expression is equal to the value behind the case, the section of this case will be executed. However, it will not stop executing without break even it catch the value equal to expression. default section will be executed as there is no value equal to expression.
+
+  - ```javascript
+    switch(expression) {
+        case value1 : 
+            //code1
+            break;
+        case value2:
+            //code2
+            break:
+        default:
+            //code3
+    }
+    
+    //switch statement check value by ===
+    ```
+
+
+## 3 Loop Strcuture
+
+ Could repeatedly executed code.
+
+### 3.1 for loop
+
+consist of Loop Body（循环体）, Terminal Condition（终止条件）
+
+```javascript
+for (initialize variable; condition expression; operator) {
+    //Loop Body
+}
+
+//condition expression is Terminal Condition
+```
+
+- example
+
+  - ```javascript
+    for (var i=1; i<=100; i++) {
+        console.log('Hello world!');
+    }
+    ```
+
+  - ```javascript
+    //softcoding
+    var num = prompt('How many times you want me to greet?: ');
+    for (var i=1; i<=num; i++) {
+        console.log("Hello World");
+    }
+    ```
+
+- double loop
+
+  - the inner loop will be executed all while external loop was executed one time.
+
+  - ```javascript
+    //example1
+    var str = '';
+    for (var i=1; i<=5; i++) {
+        for (var j=!; j<=5; j++) {
+            str += '*';
+        }
+        str += '\n';
+    }
+    console.log(str);
+    ```
+
+  - ```javascript
+    //example2
+    var str = '';
+    for (var i=1; i<=9; i++) {
+        for (var j=1; j<=i; j++){
+            str += j + '*' + i + "=" + i*j + '\t';
+        }
+        str += '\n';
+    }
+    ```
+
+### 3.2 while loop
+
+- Be executed until codition wan't true.
+
+- ```javascript
+  while (condition expression) {
+      //Loop Body
+  }
+  ```
+
+- example
+
+  - ```javascript
+    var num = 1;
+    while (num <= 100) {
+        console.log('Hello World');
+        num++;
+    }
+    ```
+
+### 3.3 do while loop
+
+- Will be executed at least one time.
+
+- ```javascript
+  do {
+      //Loop Body
+  } while (condition)
+  ```
+
+## 4 Ternary Expression
+
+Ternary Expression is the expression consist of Ternary operator.
+
+- condition ? expression1 : expression2;
+
+- if the condition is true, it will return the value of expression1, or it will return th value of expression2.
+
+- ```javascript
+  var num = 10;
+  console.log('if num bigger greater than 5?: ');
+  console.log( num>5? 'YES':"NO");
+  ```
+
+
+## 5 Breakpoint Debug
+
+google for details
+
+![BreakpointDebug](\img\BreakpointDebug.png)
+
+## 6 Contine and Break
+
+### 6.1 Contine
+
+jump out of current loop, and contine the next loop
+
+- ```javascript
+  for (var i=1; i<=5; i++) {
+      if (i == 3){
+          continue;
+      }
+      console.log(i);
+  }
+  //--> 1, 2, 4, 5
+  ```
+
+### 6.2 Break
+
+jump out of all loops.
+
+- ```javascript
+  for (var i=1; i<=5; i++) {
+      if (i == 3){
+          break;
+      }
+      console.log(i);
+  }
+  //--> 1, 2
+  ```
+
+# Array
+
+A set of data. 
+
+***Accurately, it should be called as Linked List. It has a different data structure with the array such as in JAVA. You could learn more by studying data structure.
+
+Linked List is usually used in script languages.
+
+## 1 Introduction
+
+### how to creat an array
+
+```javascript
+//Create an array as an Object by new keyword.
+var arr = new Array();
+
+//Create an array by []
+var arr1 = [];
+var arr2 = [1, 'hello', true, 3.14, arr1];
+// the data in array such as 1, 'hello' is called element
+```
+
+## 2 Get the array element
+
+the index of array begin with 0.
+
+### 2.1 Array Index
+
+Get the element in Array by using index by the form of Array[index].
+
+Also called accessed the element in array.
+
+- ```javascript
+  //example
+  var arr2 = [1, 'hello', true, 3.14, arr1];
+  console.log(arr2[1]); //-->'hello'
+  console.log(arr2[100]); //-->undefined
+  ```
+
+### 2.2 Traverse Array
+
+go through the array.
+
+- ```javascript
+  //example
+  var arr = ['red', 'green', 'blue'];
+  for (var i=0; i<3; i++) {
+    console.log(arr[i]);
+  }
+
+## 3 Get the length of array
+
+### 3.1 Array.length
+
+- ```javascript
+  //example
+  var arr = ['red', 'green', 'blue'];
+  for (var i=0; i<arr.length; i++) {
+    console.log(arr[i]);
+  }
+  ```
+
+### 3.2 Get the max in array
+
+- It's algorithm. Learn more by studying algorithm.
+
+  - ```javascript
+    var arr = [2, 6, 1, 77, 52, 25, 7];
+    var max = arr[0];
+    for (var i=1; i<arr.length; i++) {
+        if(arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    cosnole.log('max: ' + max);//-->77
+    ```
+
+### 3.3 Add new elements
+
+- By expanding the length of array
+
+  - ```javascript
+    var arr = ['red', 'green', 'blue'];
+    console.log(ar.length); //-->3
+    arr.length = 5;
+    console.log(arr); //appended two empty elements
+    console.log(arr[4]); //-->undefined
+    ```
+
+- Add/Update element directly
+
+  - ```javascript
+    var arr = ['red', 'green', 'blue'];
+    arr[3] = 'pink';
+    console.log(arr[3]); //-->pink
+    arr[0] = 'yellow';
+    console.log(arr[0]); //-->yellow
+    ```
+
+- Practice
+
+  - ```javascript
+    //Create a arry [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    var arr = [];
+    for (var i=1; i<10; i++) {
+        arr[i] = i + 1;
+    }
+    cosnole.log(arr);
+    ```
+
+  - ```javascript
+    //pick up the number greater than 10. and put them in a new array
+    var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+    var newArr = []; //newArr.length == 0;
+    for (var i=0; i<arr.length; i++) {
+        if (arr[i] >= 10) {
+            newArr[newArr.length] = arr[i];
+            //Needn't newArr.length++
+            //newArr.length auto updata
+        }
+    }
+    console.log(newArr);
+    ```
+
+## 4 Array Sort
+
+- Bubble sort (algorithm)
+
+  - There are more understandable video in YouTube or Bilibili.
+
+    - https://www.bilibili.com/video/BV13J411L72U?from=search&seid=10489636615108067625
+
+  - ```javascript
+    var arr = [5, 4, 3, 2, 1];
+    
+    for (var i=0; i<arr.length; i++) {
+        for (var j=0; j<arr.lenght-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                var tmp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+    ```
+
+
+# Function
 
