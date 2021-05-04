@@ -1062,3 +1062,348 @@ go through the array.
 
 # Function
 
+A code block that packaged the code would be repeatedly executed.
+
+```javascript
+//example, get the sum
+function getSum(num1, num2) {
+    var sum = 0;
+    for (var i=num1, i<=num2; i++) {
+        sum += i;
+    }
+    console.log
+}
+
+getSum(1, 100);
+getSum(10, 50);
+getSum(1, 1000);
+```
+
+## 1 How to use function
+
+Two steps, firstly declare function, secondly invoke function.
+
+```javascript
+//declare function
+function functionName (parameter) {
+    //Function Body
+}
+
+//invoke function
+functionName();
+```
+
+## 2 Function Parameter
+
+### 2.1 Formal Parameter and Actual Parameter
+
+Formal parameter, Actual parameter.
+
+Formal parameter, the parameter in function declaring.
+
+Actual Parameter, the parameter in function invoking.
+
+![Parameter](\img\Parameter.png)
+
+- **The numbers of Formal Parameter and Actual Parameter**
+
+  - ![NumberOfParameter](\img\NumberOfParameter.png)
+
+  - ```javascript
+    //match the numbers of Formal Parameter and Actual Parameter
+    function getSum(num1, num2) {
+      console.log(num1 + num2);
+    }
+    
+    getSum(1, 2); //-->3
+    getSum(1, 2, 3); //-->3
+    getSum(1); //--> 1 + undefined -->NaN
+    ```
+
+### 2.2 Return Value
+
+- Form
+
+  - ```javascript
+    function FunctionName(parameter) {
+        //Function Body
+        return Value
+    }
+    ```
+
+- Example
+
+  - ```javascript
+    function getSum(num1, num2) {
+      return num1 + num2;
+    }
+    
+    console.log(getSum(1, 2)); //-->3
+    console.log(getSum(1, 2, 3)); //-->3
+    console.log(getSum(1)); //--> 1 + undefined -->NaN
+    ```
+
+- The code after return will not be executed.
+
+  - ```javascript
+    function getSum(num1, num2) {
+        return num1 + num2;
+        alert('This code will not be executed.');
+    }
+    
+    console.log(getSum(1, 2)); //-->3
+    ```
+
+- return only can return one value
+
+  - ```javascript
+    function fn(num1, num2) {
+        return num1, num2;
+    }
+    
+    console.log(fn(1, 2)); //-->1
+
+- Return multiple values by using array.
+
+  - ```javascript
+    function fn(num1, num2) {
+        return [num1, num2];
+    }
+    
+    console.log(fn(1, 2)); //-->[1, 2]
+    ```
+
+- The function without return will return undefined.
+
+  - ```javascript
+    function getSum(num1, num2) {
+      console.log(num1 + num2);
+    }
+    
+    console.log(getSum(1, 2)); //--> undefined
+    ```
+
+### 2.3 aruguments
+
+- arguments catch all the actual parameterss and put them in ArrayLike by default.
+
+- ```javascript
+    //example
+    function fn() {
+        console.log(arguments);
+    }
+    
+    fn(1, 2, 3);//-->[1, 2, 3]
+    ```
+
+- ArrayLike
+
+  - Has length field like Array.
+
+  - Store data by index.
+
+  - Array doesn't have the methods of array. e.g. pop(), push().
+
+  - ```javascript
+    //example return the max of parameters
+    function getMax() {
+        var max = arguments[0];
+        for (var i=1; i<arguments.length; i++) {
+            if (arguments[i] > max) {
+                max = arguments[i];
+            }
+        }
+        return max;
+    }
+    
+    console.log(getMax(11, 2, 34, 444, 5, 100)); //-->444
+    ```
+
+
+## 3 reverse
+
+- use fuction to do reverse
+
+  - ```javascript
+    function reverse(arr) {
+        var newArr =[];
+        for (var i=arr.length-1; i>=0; i--) {
+            newArr[newArr.length] = arr[i];
+        }
+        return newArr;
+    }
+    ```
+
+## 4 Bubble sort
+
+- Use function do buble sort
+
+  - ```javascript
+    function sort(arr) {
+        for (var i=0; i<arr.length; i++) {
+            for (var j=0; j<arr.length-i-1; j++) {
+                if (arr[j] > arr[j+1]) {
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+    ```
+
+## 5 mutually invoke
+
+- ```javascript
+  function f1() {
+      //f1 body
+  }
+  
+  function f2() {
+      f1(); //It'S OK
+  }
+  ```
+
+## 6 Anonymous Functions
+
+Another way to declare function without function name.
+
+- ```javascript
+  var func = function(aru) {
+      console.log("Hello " + aru);
+  }
+  
+  func("Conan"); //-->"Hello Conan"
+  
+  /*
+  	(1)func is the name of varibale, not the name of fucntion
+  	(2)This way also could pass parameters
+  */
+  ```
+
+# Scope
+
+The scope that variable or function can effect.
+
+Two kinds of scope --> Global Scope, Local Scope.
+
+- Global Scope
+  - Will effect on all script or .js
+- Local Scope
+  - Only effect on sections of code. such as in function
+
+## 1 Varibale
+
+- Global Variable
+
+  - will be kept in memory until the program was shut down. waste memory resources.
+
+  - ```javascript
+    var num = 10; //Global variable
+    
+    function fn() {
+        console.log(num);
+    } //-->10
+    ```
+
+- Local Varibale
+
+  - will be destroied when isn't used. save memory resources.
+
+  - ```javascript
+    function func() {
+        var num1 = 10; //Local variable
+    }
+    
+    console.log(num1) //-->error: num1 is not defined
+    ```
+
+- special case
+
+  - ```javascript
+    function func() {
+        var num = 10; //Local variable
+        num2 = 20; //Global variable
+    }
+    
+    console.log(num2); //-->20
+    
+    //The variable without declaring in function will be global variable
+    ```
+
+## 2 Block Scope
+
+Block Scope is added in ES6.
+
+Block means... the section of {}, you could learn more by studying JAVA
+
+for example The varibale in {} (block) is block scope, will effect only in current block.
+
+You needn't worry about this in JavaScript.
+
+## 3 Scope chain
+
+Inner varibale access external variable.
+
+- ```javascript
+  //example
+  function f1() {
+      var num = 123;
+      
+      function f2() {
+          console.log(num);
+      }
+      
+      f2();
+  }
+  
+  var num = 456;
+  
+  f1(); //-->123
+  ```
+
+# Hoisting
+
+I don't know if this called hoisting. Its name in chinese is called 预解析.
+
+## 1 Start with Example
+
+Hoisting is difficute to explain for me. So let's start with some example.
+
+- ```javascript
+  //normally code
+  var num = 10;
+  console.log(num); //-->10
+  ```
+
+- ```javascript
+  //how about I declare the variable later?
+  console.log(num);
+  var num = 10; //--> undefined
+  ```
+
+- ```javascript
+  //how about I invoke the function before I declare it?
+  fn();
+  
+  function fn() {
+      console.log("Hello world!");
+  }
+  ```
+
+- ```javascript
+  //Change the way of declaring function and try again.
+  fun(); //error: fun is not a function
+  
+  var fun = function() {
+      console.log("Hello world!");
+  }
+  ```
+
+## 2 How JS engine run JS code
+
+JS engine run js code by two steps. hoisting and executed code.
+
+- (1) Hoisting. take the var varibale and function in current scope to the front of the scope.
+- (2) Executed the code in order.
+
