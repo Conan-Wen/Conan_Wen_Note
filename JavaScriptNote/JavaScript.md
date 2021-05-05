@@ -1407,3 +1407,773 @@ JS engine run js code by two steps. hoisting and executed code.
 - (1) Hoisting. take the var varibale and function in current scope to the front of the scope.
 - (2) Executed the code in order.
 
+## 3 Variable Hoisting and Function Hoisting
+
+- Variable Hoisting
+  - Hoist variable declaring ahead of other code, but do not hoist varibale assigning.
+- Function Hoisting
+  - Hoist variable declaring ahead of other code, but do not invoke.
+
+## 4 Practice Example
+
+- ```javascript
+  //example1
+  var num = 10;
+  fun();
+  function fun() {
+      console.log(num); //-->undefined
+      var num = 20;
+  }
+  ```
+
+- ```javascript
+  //example2
+  var num = 10;
+  function fn() {
+      console.log(num); //-->undefined
+      var num = 20;
+      console.log(num);//-->20
+  }
+  ```
+
+- ```javascript
+  //example4
+  f1();
+  console.log(c);
+  console.log(b);
+  console.log(a);
+  function f1() {
+      var a = b = c = 9;
+      console.log(a);
+  	console.log(b);
+  	console.log(c);
+  }
+  
+  /*
+  	var a = b = c = 9; is different with var a = 9; b = 9; c = 9;
+  	
+  	var a = b = c = 9; equal to 
+  	c = 9; //global variable
+  	b = c; //global variable
+  	var a = b; //global variable
+  	
+  	var a = 9; b = 9; c = 9; equal to
+  	var a = 9;
+  	var b = 9;
+  	var c = 9;
+  */
+  ```
+
+- ```javascript
+  //example3
+  var a = 18;
+  f1();
+  function f1() {
+      var b = 9;
+      console.log(a); //-->undefined
+      console.log(b);//-->9
+      var a = '123';
+  }
+  ```
+
+# Object
+
+It's a really abstract  concept. you'd better to learn more by studying object oriented programming language such as JAVA.
+
+consist of fields and methods.
+
+- differences between fields and variables
+  - variables need to be declared, fields needn't.
+  - method is more like the function in Object.
+
+## 1 How to create and use Object
+
+by literal {} , by new Object, by construtor.
+
+### 1.1 By Literal {}
+
+- ```javascript
+  var obj = {};
+  ```
+
+- ```javascript
+  //create object
+  var obj = {
+      username = 'Conan',
+      age = 18,
+      sayHi: function() {
+          console.log("Hello!");
+      },
+  }
+  
+  //the fields and function in Object should be stored by key-value pairs. like key : value,
+  
+  //use object
+  console.log(obj.username); //-->Conan
+  console.log(obj['age']); //-->18
+  obj.sayHi(); //-->"Hello!"
+  ```
+
+### 1.2 By new Object
+
+- ```javascript
+  var obj = new Object();
+  
+  obj.username = 'Conan';
+  obj.age = 18;
+  obj.sayHi = function() {
+      console.log('Hello!');
+  }
+  
+  console.log(obj.username); //-->Conan
+  console.log(obj['age']); //-->18
+  obj.sayHi(); //-->"Hello!"
+  ```
+
+### 1.3 By constructor
+
+Abstract the common fields or functions, and package them into a function. The function（函数） is called constructor（构造函数）.
+
+- Form
+
+  - ```javascript
+    //create constuctor
+    function ConstructorName(value) {
+        this.fields = value;
+        this.method = function() {
+            //method body
+        }
+    }
+    
+    //create an object by above constructor
+    new ConstructorName(value);
+    ```
+
+- Example
+
+  - ```javascript
+    //User constructor
+    function User(username, age){ //constructor name begin with capital
+        this.username = username;
+        this.age = age;
+        this.greet = function() {
+            return 'Hello! My name is ' + this.username + "!"
+        }
+    }
+    
+    //use object
+    var user1 = new User('Conan', 18);
+    console.log(typeof user1); //-->object
+    console.log(user1.greet()); //-->'Hello! My name is Conan!'
+    ```
+
+## 2 new keyword
+
+The steps of new keyword run :
+
+1. 'new ConstructorName' could create a null object.
+2. this keyword will point to the object.
+3. executed the code in constructor to add value and method to the object.
+4. finally return the object.
+
+## 3 traverse object
+
+'for in' statement is used to traverse object.
+
+- form
+
+  - ```javascript
+    for (variable in object) {
+        //code
+    }
+    ```
+
+- example
+
+  - ```javascript
+    //example
+    var obj = {
+        username = 'Conan',
+        age = 18,
+        sayHi: function() {
+            console.log("Hello!");
+        },
+    }
+    
+    for (var key in obj) {
+        console.log(key); //--> username, age sayHi
+        console.log(obj[key]); //-->'Conan', 18, function sayHi
+    }
+    ```
+
+# Built-in Objects
+
+Three types of object, custom object, built-in object, browser object.
+
+Custom object and Built-in object is basics belong to ECMAScript. But browser object is only for JS.
+
+The built-in Object, for example, Math, Date, Array, String.
+
+## 1 Use Document
+
+It's  really important because I can't list them all and you can't remember them all.
+
+Useful Document
+
+- MDN
+
+### How to use Document
+
+1. Read what this method could do.
+2. Read the meanings of parameters and their types.
+3. Read the meanings of return value and types.
+4. Test it by a demo.
+5. Read the example.
+
+## 2 Math
+
+Math object doesn't have constructor, so we needn't use it by new keyword. Just use it directly.
+
+**The class which couldn't be used to created instance, is called utility class.** Learning more by Studying Class.
+
+- example
+
+  - ```javascript
+    //Math.PI
+    cosnole.log(Math.PI); //-->3.1415926...
+    
+    //Math.max()
+    console.log(Math.max(1, 99, 3)); //-->99
+    ```
+
+- Other fields and methods in Math Object.
+
+  - Math.PI    //PI
+
+  - Math.floor()     //round down
+
+  - Math.ceil()    //round up
+
+  - Math.round()    //round
+
+    - ```javascript
+      Math.round(1.5) //-->2
+      Math.round(-1.5) //-->-1
+      ```
+
+  - Math.abs    //absolute value
+  - Math.max()    //maximum
+  - Math.min()    //minimum
+
+- random()
+
+  - ```javascript
+    Math.random() //take the value of [0, 1)
+    ```
+
+  - more usage by reading the document
+
+## 3 Date
+
+> JavaScript **`Date`** objects represent a single moment in time in a platform-independent format. `Date` objects contain a `Number` that represents milliseconds since 1 January 1970 UTC.
+>
+> ---Date MDN (access 2021/05/05)
+
+Date objects use constructor to create object.
+
+- Usage
+
+  - ```javascript
+    var date = new Date();
+    console.log(date); //get current time without parameter
+    
+    var date1 = new Date(2019, 10 ,1);
+    console.log(date1); //return Nov
+    
+    var date2 = new Date('2019-10-1 8:8:8');
+    console.log(date2); //return oct
+    ```
+
+- Date Format
+
+  - ![DataFormat](\img\DataFormat.png)
+
+- Timestamp
+
+  - get the millisecond past from 1st,  Jan, 1970.
+
+  - ```javascript
+    //by valueOf() or getTime()
+    var date = new Date();
+    console.log(date.valueOf());
+    console.log(date.getTime());
+    
+    //by +new Date(),Usual writing style
+    var date1 = +new Date();
+    console.log(date);
+    
+    //by Date.now(), new way in H5
+    console.log(Date.now());
+    ```
+
+  - 
+
+- In action
+
+  - count down
+
+  - ![DateAction](\img\DateAction.png)
+
+  - ```javascript
+    function countDown(time) {
+        var nowTime = +new Date();
+        var inputTime = +new Date(time);
+        var times = (inputTime - nowTime)/1000; //times variable is the second of the rest of time.
+        var day = parseInt(times / 60 / 60 / 24); //the rest day
+        var hour = parserInt(times / 60 / 60 % 24); //hours
+        var minute = parseInt(times / 60 % 60); //minutes
+        var second = parseInt(times % 60); //seconds
+        return day+'days' + hour+'hours' + minute+'minutes' + second+'seconds';
+    }
+    
+    console.log(countDown('2022-5-5 0:0:0'));
+    ```
+
+## 4 Array
+
+- review
+
+  - ```javascript
+    //empty array
+    var arr1 = new Array(); 
+    
+    //empty array but its lenghth is 2
+    var arr2 = new Array(2);
+    
+    //equal [2, 3]
+    var arr3 = new Arrat(2, 3);
+    ```
+
+### 4.1 Determine Type
+
+- instanceof
+  - instanceof keyword is used to determine if the data is a instance of the Object.
+
+  - ```javascript
+    var arr = [];
+    var obj = {};
+    
+    console.log(arr instanceof Array); //--> true
+    console.log(obj instanceof Array); //--> false
+    ```
+
+- Array.isArray()
+
+  - ```javascript
+    var arr = [];
+    var obj = {};
+    
+    console.log(Array.isArray(arr)); //--> true
+    console.log(Array.isArray(obj)); //--> false
+    ```
+
+### 4.2 Create/Delete elements
+
+- ![ArrayCD](\img\ArrayCD.png)
+
+- push()
+
+  - add one or multipe elements at the end of Array.
+
+  - ```javascript
+    var arr = [1, 2, 3];
+    
+    console.log(arr.push(4)); //-->push() return the length of new Array
+    console.log(arr); //-->[1, 2, 3, 4]
+    ```
+
+- unshift()
+
+  - add one or multipe elements at the head of Array.
+
+  - ```javascript
+    var arr = [1, 2, 3];
+    
+    console.log(arr.unshift(0)); //-->unshift() return the length of new Array
+    console.log(arr); //-->[0, 1, 2, 3]
+    ```
+
+- pop()
+
+  - delete the last element of Array. Only can delete one element.
+
+  - ```javascript
+    var arr = [1, 2, 3];
+    
+    console.log(arr.pop()); //-->pop() return the element deleted
+    console.log(arr); //-->[1, 2]
+    ```
+
+- shift()
+
+  - delete the first element of Array. Only can delete one element.
+
+  - ```javascript
+    var arr = [1, 2, 3];
+    
+    console.log(arr.shift()); //-->shift() return the element deleted
+    console.log(arr); //-->[2, 3]
+    ```
+
+### 4.3 sort
+
+- ![ArraySort](\img\ArraySort.png)
+
+- reverse()
+
+  - reverse the array
+
+  - ```javascript
+    var arr = [1, 2, 3];
+    
+    arr.reverse();
+    console.log(arr); //-->[3, 2, 1]
+    ```
+
+- sort()
+
+  - sort the array
+
+  - ```javascript
+    var arr = [2, 3, 1];
+    
+    arr.sort();
+    console.log(arr); //-->[1, 2, 3]
+    ```
+
+  - Special case
+
+    - ```javascript
+      var arr = [13, 4, 77, 1, 7];
+      
+      arr.sort();
+      console.log(arr); //-->[1, 13, 4, 7, 77]
+      //it sort the elements by the first of the number, then second number
+      ```
+
+    - ```javascript
+      //ascending sort
+      var arr = [13, 4, 77, 1, 7];
+      
+      arr.sort(function(a, b) {
+          return a - b;
+      });
+      console.log(arr); //-->[1, 4, 7, 13, 77]
+      ```
+
+    - ```javascript
+      //descending sort
+      var arr = [13, 4, 77, 1, 7];
+      
+      arr.sort(function(a, b) {
+          return b - a;
+      });
+      console.log(arr); //-->[77, 13, 7, 4, 1]
+      ```
+
+### 4.4 index
+
+- ![ArrayIndex](\img\ArrayIndex.png)
+
+- indexOf()
+
+  - find the element and return its index. If it not exist, it will return -1. And only return the first value's index.
+
+  - indexOf(key, [StartIndex])
+
+  - ```javascript
+    var arr = ['red', 'green', 'blue', 'pink'];
+    console.log(arr.indexOf('blue')); //-->2
+    
+    var arr1 = ['red', 'green', 'blue', 'pink', 'blue'];
+    console.log(arr.indexOf('blue')); //-->2
+    
+    var arr = ['red', 'green', 'pink'];
+    console.log(arr.indexOf('blue')); //-->-1
+    
+    var arr1 = ['red', 'green', 'blue', 'pink', 'blue'];
+    console.log(arr.indexOf('blue', 3)); //-->4
+    ```
+
+- lastIndexOf()
+
+  - find the element from the last one and return its index. If it not exist, it will return -1. And only return the first value's index.
+
+  - ```javascript
+    var arr = ['red', 'green', 'blue', 'pink'];
+    console.log(arr.lastIndexOf('blue')); //-->2
+    
+    var arr1 = ['red', 'green', 'blue', 'pink', 'blue'];
+    console.log(arr.lastIndexOf('blue')); //-->4
+    
+    var arr = ['red', 'green', 'pink'];
+    console.log(arr.lastIndexOf('blue')); //-->-1
+    ```
+
+### 4.5 Removing Duplicate Elements
+
+- ![RemovingDuplicateElements](\img\RemovingDuplicateElements.png)
+
+- ```javascript
+  //can't recommond, but it's also a way. I think it's better to use in or not in.
+  
+  function unique(arr) {
+      var newArr = [];
+      for (var i=0; i<arr.length; i++) {
+          if (newArr.indexOf(arr[i]) === -1) {
+              newArr.push(arr[i]);
+          }
+      }
+      return newArr;
+  }
+  ```
+
+### 4.6 convert into String
+
+- ![Convert IntoString](\img\Convert IntoString.png)
+
+- toString()
+
+  - ```javascript
+    var arr = [1, 2, 3];
+    
+    console.log(arr.toString()); //--> '1, 2, 3'
+    ```
+
+- join()
+
+  - ```javascript
+    var arr = [1, 2, 3];
+    
+    console.log(arr.join()); //--> '1, 2, 3'
+    console.log(arr.join('-')); //--> '1-2-3'
+    ```
+
+- slice(), splice()
+
+  - ![Convert IntoString2](\img\Convert IntoString2.png)
+  - toUpperCase()
+  - toLowerCase()
+  - google for them please. especially for splice().
+
+### 4.7 String Object
+
+- Start with example
+
+  - ```javascript
+    var str = 'Hello';
+    console.log(str.length); //-->5
+    ```
+
+- Only Object has fields and method.
+
+  - Why String have length field?
+
+  - Wrappers
+
+    - wrap the Simple data type to complex data type
+
+  - ```javascript
+    //It's effect like these
+    var temp = new String('Hello');
+    str =  temp;
+    temp = null;
+    ```
+
+- Wrappers also work on Number and Boolean
+
+- String is Immutable
+
+  - ```javascript
+    var str = 'Hello';
+    var Str = '你好';
+    
+    //It seems we change the value of str. But it just change the pointer/address.
+    //It will take lots of memory resouces if you change the value often.
+    //In JAVA, there is a garbage collection. so you don't need worry about it.
+    ```
+
+  - Learn pointer more by Studying C or JAVA.
+
+- find all index of key in Array
+
+  - ```javascript
+    var str = 'aobocodoeo';
+    
+    var index = str.indexOf('o');
+    var num = 0;
+    while (index !== -1) {
+        console.log(index);
+        num++;
+        index = str.indexOf('o', index + 1);
+    }
+    console.log('the number of o:  ' + num);
+    ```
+
+- return the character by index
+
+  - ![Character](\img\Character.png)
+
+  - charAt()
+
+    - ```javascript
+      var str = 'Hello';
+      
+      console.log(str.charAt(2)); //-->e
+      
+      for (var i=0; i<str.length; i++) {
+          console.log(str.charAt(i));
+      }
+      ```
+
+  - charCodeAt()
+
+    - return the ASCII code of the character.
+
+  - str[]
+
+    - ```javascript
+      var str = 'Hello';
+      
+      console.log(str.[2]); //-->e
+      
+      for (var i=0; i<str.length; i++) {
+          console.log(str[i]);
+      }
+      ```
+
+- count the number of every character.
+
+  - ```javascript
+    var str = 'aobocodoeobacdef';
+    
+    var count = {};
+    
+    for (var i=0; i<str.lenght; i++) {
+        var chars = str.chartAt(i);
+        if (count[chars]) {
+            count[chars]++;
+        } else {
+            count[chars] = 1;
+        }
+    }
+    
+    //you also can find the max in count
+    var max = 0;
+    var ch = '';
+    for (key in count) {
+        if (count[key] > max) {
+            max = count[key];
+            ch = key
+        }
+    }
+    console.log(max);
+    ```
+
+- String operation methods
+
+  - ![StringMethods](\img\StringMethods.png)
+
+  - ```javascript
+    //concat()
+    console.log('Hello, '.concat('world!')); //--> Hello, world!
+    
+    //substr()
+    console.log('Hello'.substr(2, 2)); //-->ll
+    ```
+
+- replace()
+
+  - replace the character to another one. Only can replace the first one.
+
+  - ```javascript
+    var str = 'Hello, ella';
+    console.log(str.replace('e', 'a')); //-->Hallo, ella
+    ```
+
+  - ```javascript
+    //change all character
+    var str = 'aobocodoeo';
+    
+    while (str.indexOf('o') !== -1) {
+        str = str.replace('o', '*');
+    }
+    console.log(str); //-->'a*b*c*d*e*'
+
+- split()
+
+  - split the String by the character gave as parameter
+
+  - ```javascript
+    var str = 'red, pink, blue';
+    console.log(str.split(',')); //-->['red', 'pink', 'blue'];
+    ```
+
+# Simple Data Type and Complex Data Type
+
+- Simple data type, is also called value type.
+  - saved in stack.
+  - Store true value. e.g. string, number, boolean, undefined, null.
+  - Interstingly, if you use typeof null, it will return object. It said it's a miss during design JavaScript.
+
+- Complex data type is also called reference type.
+  - saved in Heap.
+  - Store address/pointer in Stack, and Store true value in Heap. the adress/pointer in Stack point to Heap.
+  - Created by new keyword. e.g. Object, Array, Date
+- Stack and Heap
+  - ![StackAndHeap](\img\StackAndHeap.png)
+
+- transfer parameter
+
+  -  Simple data type
+
+    - ```javascript
+      function fn(a) {
+          a++;
+          console.log(a);
+      }
+      
+      var x = 10;
+      
+      fn(x); //--> 11
+      console.log(X); //-->10
+      
+      //the value of x wasn't changed.
+      //between Simple data type. Use true value to transfer parameter.
+      ```
+
+    - It will not change the value of variable.
+
+  -  Complex data type
+
+    - ```javascript
+      function Person(name) {
+          this.name = name;
+      }
+      
+      function f1(x) {
+          console.log(x.name); //--> Conan
+          x.name = 'abc';
+          console.log(x.name); //--> abc
+      }
+      
+      var user = new Person('Conan');
+      console.log(user.name); //--> Conan
+      f1(user);
+      console.log(user.name); //--> abc
+      
+      //the value of user.name was changed.
+      //between Complex data type. Use pointer to transfer parameter.
+      ```
+
+    - 
