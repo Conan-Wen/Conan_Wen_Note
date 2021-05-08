@@ -192,7 +192,7 @@ Using JavaScript could make dynamic page, because event could be observed by JS.
     </script>
     ```
 
-### 4.1 Execute Event
+### 3.1 Execute Event
 
 - Three steps
 
@@ -219,4 +219,85 @@ Using JavaScript could make dynamic page, because event could be observed by JS.
 - Other mouse event
 
   - ![3-1](\img\3-1.png)
+
+## 4 Operate Elements
+
+### 4.1 Modify Elements
+
+- element.innerText
+
+  - Modify the content except html tag, besides remove line feed and space.
+
+  - ```html
+    <button id="btn">Change Greet</button>
+    <div id="greet">Hello</div>
+    
+    <script>
+    	//get element
+        var btn = document.querySelector(".btn");
+        var div = dcoument.querySelector(".grett");
+        //register event
+        btn.onclick = function() {
+            div.innerText = "你好！";
+        }
+    </script>
+    ```
+
+- element.innerHTML
+
+  - Modify the content include html tag with preserving line feed and space.
+
+  - ```html
+    <div id="greet1">Hello</div>
+    <div id="greet2">Hello,<span>World!</span></div>
+    
+    <script>
+        var div1 = document.querySelector("greet1");
+        //.innerText escapes HTML tag
+        div.innerText = "<strong>Hello</strong>";
+        //.innerText doesn't escape HTML tag
+        div.innerHTML = "<strong>Hello</strong>";
+        
+        var div2 = document.querySelector("greet2");
+        console.log(div2.innerText);
+        //-->Hello, World!
+        console.log(div2.innerHTML);
+        //-->Hello,<span>World!</span>
+    </script>
+    ```
+
+### 4.2 Modify Attribute
+
+- element.attribute
+
+- Example
+
+  - ```html
+    <button id="bai">Baidu</button>
+    <button id="goo">Goole</button>
+    <a id="site" href="www.baidu.com">Baidu</a>
+    
+    <script>
+        //get elements
+        var bai = document.getElementById("bai");
+        var goo = document.getElementById("goo");
+        var site = document.getElementById("site");
+        //register event
+        bai.onclick = function() {
+            site.innerText = Baidu;
+            site.href = "www.baidu.com";
+        }
+        goo.onclick = function() {
+            site.innerText = Goole;
+            site.href = "www.goole.com";
+        }
+    </script>
+    ```
+
+### 4.3 Modify Form Attribute
+
+- Change the attribute of form, such as type, value, checked, selected, disable
+
+- Example
+  - Display/Hide Password in JavaScript_in_actions
 
