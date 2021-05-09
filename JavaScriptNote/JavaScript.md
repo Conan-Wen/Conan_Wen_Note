@@ -88,10 +88,10 @@ Created by Brendan Eich in1995.
 
 ### 1.6 The Constitutions of JS
 
-![TheConstitutionsOfJS](\img\TheConstitutionsOfJS.png)
+![TheConstitutionsOfJS](img\TheConstitutionsOfJS.png)
 
 - ECMAScript: JS basics, JS syntax
-  - ![ECMAScript](\img\ECMAScript.png)
+  - ![ECMAScript](img\ECMAScript.png)
 - DOM, BOM: JS API
   - DOM (Document Object Model). Control elements (size, position, color) on the webpage.
   - BOM (Browser Object Model). For example, pop-up box, page skip.
@@ -131,7 +131,7 @@ Created by Brendan Eich in1995.
 
 #### JS input/output
 
-![inputoutput](\img\inputoutput.png)
+![inputoutput](img\inputoutput.png)
 
 ```javascript
 prompt('Tell me your age: ');
@@ -237,7 +237,7 @@ var name = "Conan",
 
 ## 4. Variable Naming Convention
 
-![NamingConvention](\img\NamingConvention.png)
+![NamingConvention](img\NamingConvention.png)
 
 * Try not use 'name' to name a variable. Because the 'name' often has meaning or value in Browser.
 
@@ -261,7 +261,7 @@ var x = "10" //x became str now
 
 - **Simple data types** (Number, String, Boolean, Undefined, Null)
 
-  - ![SimpleData Types](\img\SimpleData Types.png)
+  - ![SimpleData Types](img\SimpleData Types.png)
 
   - Number:
 
@@ -307,7 +307,7 @@ var x = "10" //x became str now
 
     - escape character
 
-      - ![EscapeCharacter](\img\EscapeCharacter.png)
+      - ![EscapeCharacter](img\EscapeCharacter.png)
 
     - .length
 
@@ -406,7 +406,7 @@ var x = "10" //x became str now
 
   - Convert into String
 
-    - ![TransformToString](\img\TransformToString.png)
+    - ![TransformToString](img\TransformToString.png)
 
     - ```javascript
       //convert number into string by .toString()
@@ -425,7 +425,7 @@ var x = "10" //x became str now
 
   - Convert into Number
 
-    - ![ConvertIntoNumber](\img\ConvertIntoNumber.png)
+    - ![ConvertIntoNumber](img\ConvertIntoNumber.png)
 
       - ```javascript
         //parseInt(String)
@@ -481,13 +481,13 @@ var x = "10" //x became str now
   - Convert to Booelan
   
     - Boolean()
-      - ![ConvertToBoolean](\img\ConvertToBoolean.png)
+      - ![ConvertToBoolean](img\ConvertToBoolean.png)
 ### 1.3 Column
 
   Computer can't undestand other languages except machine language. So we need to translate other languages to machine languages. Conpiler is used to do this.
 
 - Interpreted Languages and Compiled Languages
-  - ![InterpretedLanguagesAndCompiledLanguages](\img\InterpretedLanguagesAndCompiledLanguages.png)
+  - ![InterpretedLanguagesAndCompiledLanguages](img\InterpretedLanguagesAndCompiledLanguages.png)
   - Interpreted Languages
     - the program is interpreted line by line when it is running. e.g. JavaScript
   - Compiled Languages
@@ -510,7 +510,7 @@ Operator is called 运算符 or 操作符. It is used to implement assigning, co
 
 - **arithmetical operation**
 
-  - ![ArithmeticalOperation](\img\ArithmeticalOperation.png)
+  - ![ArithmeticalOperation](img\ArithmeticalOperation.png)
 
   - ```javascript
     // + add
@@ -573,7 +573,7 @@ Operator is called 运算符 or 操作符. It is used to implement assigning, co
 
 - **Comparison Operator**
 
-  - ![ComparisonOperator](\img\ComparisonOperator.png)
+  - ![ComparisonOperator](img\ComparisonOperator.png)
 
   - Special Case
 
@@ -587,7 +587,7 @@ Operator is called 运算符 or 操作符. It is used to implement assigning, co
 
 - **Logical Operator**
 
-  - ![LogicalOperator](\img\LogicalOperator.png)
+  - ![LogicalOperator](img\LogicalOperator.png)
 
   - and &&
 
@@ -648,7 +648,7 @@ Operator is called 运算符 or 操作符. It is used to implement assigning, co
 
   - Assigning Operator
 
-    - ![AssigningOperator](\img\AssigningOperator.png)
+    - ![AssigningOperator](img\AssigningOperator.png)
 
     - ```javascript
       // =
@@ -663,7 +663,7 @@ Operator is called 运算符 or 操作符. It is used to implement assigning, co
 
 ## 2 Operator Precedence
 
-![OperatorPrecedence](\img\OperatorPrecedence.png)
+![OperatorPrecedence](img\OperatorPrecedence.png)
 
 - Practice
 
@@ -678,19 +678,19 @@ Operator is called 运算符 or 操作符. It is used to implement assigning, co
 
 Control our code run as a kind of order. There are three structures in control flow. Sequential Structure, Branch Structure, Loop structure.
 
-![ControlFlow](\img\ControlFlow.png)
+![ControlFlow](img\ControlFlow.png)
 
 ## 1 Sequential Structure
 
 The code in Sequential Structure will be executed one by one by sequential order.
 
-![SequentialStructure](\img\SequentialStructure.png)
+![SequentialStructure](img\SequentialStructure.png)
 
 ## 2 Branch Structure
 
 The order of code executed depends on different condition. Different routes will get different return.
 
-![BranchStructure](\img\BranchStructure.png)
+![BranchStructure](img\BranchStructure.png)
 
 ### 2.1 if statement
 
@@ -881,7 +881,7 @@ Ternary Expression is the expression consist of Ternary operator.
 
 google for details
 
-![BreakpointDebug](\img\BreakpointDebug.png)
+![BreakpointDebug](img\BreakpointDebug.png)
 
 ## 6 Contine and Break
 
@@ -1103,11 +1103,11 @@ Formal parameter, the parameter in function declaring.
 
 Actual Parameter, the parameter in function invoking.
 
-![Parameter](\img\Parameter.png)
+![Parameter](img\Parameter.png)
 
 - **The numbers of Formal Parameter and Actual Parameter**
 
-  - ![NumberOfParameter](\img\NumberOfParameter.png)
+  - ![NumberOfParameter](img\NumberOfParameter.png)
 
   - ```javascript
     //match the numbers of Formal Parameter and Actual Parameter
@@ -1696,7 +1696,7 @@ Date objects use constructor to create object.
 
 - Date Format
 
-  - ![DataFormat](\img\DataFormat.png)
+  - ![DataFormat](img\DataFormat.png)
 
 - Timestamp
 
@@ -1722,7 +1722,7 @@ Date objects use constructor to create object.
 
   - count down
 
-  - ![DateAction](\img\DateAction.png)
+  - ![DateAction](img\DateAction.png)
 
   - ```javascript
     function countDown(time) {
@@ -1779,7 +1779,7 @@ Date objects use constructor to create object.
 
 ### 4.2 Create/Delete elements
 
-- ![ArrayCD](\img\ArrayCD.png)
+- ![ArrayCD](img\ArrayCD.png)
 
 - push()
 
@@ -1827,7 +1827,7 @@ Date objects use constructor to create object.
 
 ### 4.3 sort
 
-- ![ArraySort](\img\ArraySort.png)
+- ![ArraySort](img\ArraySort.png)
 
 - reverse()
 
@@ -1883,7 +1883,7 @@ Date objects use constructor to create object.
 
 ### 4.4 index
 
-- ![ArrayIndex](\img\ArrayIndex.png)
+- ![ArrayIndex](img\ArrayIndex.png)
 
 - indexOf()
 
@@ -1922,7 +1922,7 @@ Date objects use constructor to create object.
 
 ### 4.5 Removing Duplicate Elements
 
-- ![RemovingDuplicateElements](\img\RemovingDuplicateElements.png)
+- ![RemovingDuplicateElements](img\RemovingDuplicateElements.png)
 
 - ```javascript
   //can't recommond, but it's also a way. I think it's better to use in or not in.
@@ -1940,7 +1940,7 @@ Date objects use constructor to create object.
 
 ### 4.6 convert into String
 
-- ![Convert IntoString](\img\Convert IntoString.png)
+- ![Convert IntoString](img\Convert IntoString.png)
 
 - toString()
 
@@ -1961,7 +1961,7 @@ Date objects use constructor to create object.
 
 - slice(), splice()
 
-  - ![Convert IntoString2](\img\Convert IntoString2.png)
+  - ![Convert IntoString2](img\Convert IntoString2.png)
   - toUpperCase()
   - toLowerCase()
   - google for them please. especially for splice().
@@ -2022,7 +2022,7 @@ Date objects use constructor to create object.
 
 - return the character by index
 
-  - ![Character](\img\Character.png)
+  - ![Character](img\Character.png)
 
   - charAt()
 
@@ -2082,7 +2082,7 @@ Date objects use constructor to create object.
 
 - String operation methods
 
-  - ![StringMethods](\img\StringMethods.png)
+  - ![StringMethods](img\StringMethods.png)
 
   - ```javascript
     //concat()
@@ -2131,7 +2131,7 @@ Date objects use constructor to create object.
   - Store address/pointer in Stack, and Store true value in Heap. the adress/pointer in Stack point to Heap.
   - Created by new keyword. e.g. Object, Array, Date
 - Stack and Heap
-  - ![StackAndHeap](\img\StackAndHeap.png)
+  - ![StackAndHeap](img\StackAndHeap.png)
 
 - transfer parameter
 

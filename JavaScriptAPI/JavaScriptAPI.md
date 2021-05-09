@@ -2,7 +2,7 @@
 
 ## 1 Relevance between Web APIs and JS basic
 
-- ![1-1](\img\1-1.png)
+- ![1-1](img\1-1.png)
 
 - JS basic
   - basic syntax stipulated by ECMAScript standard.
@@ -24,7 +24,7 @@ API (Application Programming Interface, 应用程序编程接口), defined a num
 Programmer could realize some functions by API, without learning how did it.
 
 - Example
-  - ![1-2](\img\1-2.png)
+  - ![1-2](img\1-2.png)
 
 ### 2.2 Web API
 
@@ -40,7 +40,7 @@ By DOM, we could change the content, construct, pattern of web page.
 
 ### 1.1 DOM Tree
 
-- ![2-1](\img\2-1.png)
+- ![2-1](img\2-1.png)
 
 - Document
   - One page called one document
@@ -218,7 +218,7 @@ Using JavaScript could make dynamic page, because event could be observed by JS.
 
 - Other mouse event
 
-  - ![3-1](\img\3-1.png)
+  - ![3-1](img\2-2.png)
 
 ## 4 Operate Elements
 
@@ -300,4 +300,91 @@ Using JavaScript could make dynamic page, because event could be observed by JS.
 
 - Example
   - Display/Hide Password in JavaScript_in_actions
+
+### 4.4 Modify Element Style
+
+- element.style
+
+  - Modify by line.
+
+  - ```html
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    
+    <body>
+        <div></div>
+        <script>
+            var div = document.querySelector('div');
+            
+            div.onclick = function() {
+                //Arrtibute use upper Camel-case
+                div.style.backgroundColor = 'purpole';
+                this.style.width = "250px";
+            }
+        </script>
+    </body>
+    ```
+
+  - background-color --> backgroundColor
+
+  - fontsize --> fontSize
+
+- element.className
+
+  - Modify by class.
+  
+  - Change class name directly by covering original class.
+  
+  - ```html
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .change {
+            background-color: purple;
+            color: #fff;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+    </style>
+    
+    <body>
+        <div>Text</div>
+        
+        <script>
+            var test = document.querySelector('div');
+            
+            test.onclick = function() {
+                this.className = "change";
+            }
+        </script>
+    </body>
+    ```
+
+### 4.5 element.getAttribute()
+
+- Get attribute of element.
+- Difference between element.attribute
+  - element.getAttribute() get the custom attribute.
+
+### 4.6 element.setAttribute()
+
+- set a new value to attribute.
+
+- element.setAttribute("attribute", "value");
+
+### 4.7 element.removeAttribute()
+
+- remove an attribute of element.
+
+### Conclusion
+
+- ![2-3](img\2-3.png)
 
