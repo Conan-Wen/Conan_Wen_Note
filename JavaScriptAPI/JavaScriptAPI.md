@@ -368,6 +368,10 @@ Using JavaScript could make dynamic page, because event could be observed by JS.
     </body>
     ```
 
+### Custom Attribute
+
+- To distinguish Custom attribute and normal attribute, custom attribute should be started with "data-"
+
 ### 4.5 element.getAttribute()
 
 - Get attribute of element.
@@ -384,7 +388,145 @@ Using JavaScript could make dynamic page, because event could be observed by JS.
 
 - remove an attribute of element.
 
+### 4.8 element.dataset.
+
+- element-getAttribute("data-index")
+- It also can be written as element.dataset.inde or element.dataset["index"].
+- Only could be used IE 11 or higher.
+
 ### Conclusion
 
 - ![2-3](img\2-3.png)
+
+# Node
+
+To get elements
+
+ 	1. By DOM
+
+2. By the hierarchical relationship of node
+
+## 1. Brief
+
+All the elements in web page could be regarded as node.
+
+![3-1](img\3-1.png)
+
+All the nodes could be accessed by JavaScript. Besides, all nodes could be modified, created, deleted.
+
+The attributes of node:
+
+- nodeType
+  - element node: nodeType == 1
+  - attribute node: nodeType == 2
+  - text node: nodeType == 3, include character, space, newline
+- nodeName
+- nodeValue
+
+## 2. Node operation
+
+### 2.1 Hierarchical relationship of node
+
+1. Parent node
+
+   - ```javascript
+     node.parentNode
+     ```
+
+   - get the latest parent node of the node.
+   - return null if it doesn't have parent node.
+
+2. Child node
+
+   - ```javascript
+     parentNode.childNodes
+     ```
+
+     - get all child nodes of the parent node.
+
+   - ```javascript
+     parentNode.children
+     ```
+
+     - only get all element node of the parent node.
+
+   - ```javascript
+     parentNode.firstChild
+     ```
+
+     - return the first child node.
+
+   - ```javascript
+     parentNode.lastChild
+     ```
+
+     - return the last child node.
+
+   - ```javascript
+     parentNode.firstElementChild
+     ```
+
+     - return the first element child node.
+     - IE9 or higher
+
+   - ```javascript
+     parentNode.lastElementChild
+     ```
+
+     - return the last element child node.
+     - IE9 or higher
+
+3. Sibling node
+
+   - ```javascript
+     node.nextSibling
+     ```
+
+     - get the next sibling node, return null if there is not a sibling node.
+
+   - ```javascript
+     node.previousSibling
+     ```
+
+     - get the previous sibling node, return null if there is not a sibling node.
+
+   - ```javascript
+     node.nextElementSibling
+     ```
+
+     - get the next element sibling node.
+     - IE9 or higher
+
+   - ```javascript
+     node.previousSibling
+     ```
+
+     - get the previous element sibling node.
+     - IE9 or higher
+
+### 2.2 Create node
+
+- create node
+  -  ```javascript
+      document.createElement('tagName');
+      //tagName is the element of HTML
+      //also called dynamic creation
+      ```
+
+- append node
+
+  - ```javascript
+    node.appendChild(child)
+    //put the node created to current node
+    ```
+
+  - Append a child element at the end of parent node. Like after in CSS.
+
+- insert 
+
+  - ```javascript
+    node.insertBefore(child, element)
+    ```
+
+  - Add a child element in front of element. node is their parent node.
 
