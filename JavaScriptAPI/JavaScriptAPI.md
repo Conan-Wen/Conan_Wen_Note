@@ -530,3 +530,21 @@ The attributes of node:
 
   - Add a child element in front of element. node is their parent node.
 
+### 2.3 Remove node
+
+- ```javascript
+  node.removeChild(child)
+  ```
+
+  - Remove the node, return the node removed.
+
+### 2.4 Clone node
+
+- ```javascript
+  node.cloneNode()
+  ```
+
+  - Return the node. 
+  - If the parameter is empty or false, only clone the node excluding its child node. Also called shallow copy.
+  - If the parameter is true, Copy the node with its child node. Also called deep copy.
+
